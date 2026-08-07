@@ -119,6 +119,19 @@ ul li::before{
 #countdown small{
     color:#fff;
 }
+    .redirect-message{
+    margin:20px 0;
+    font-size:18px;
+    color:#ffd54f;
+    font-weight:bold;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0.5;
+    }
+}
 </style>
 
 </head>
@@ -138,7 +151,7 @@ ul li::before{
     <li>🚀 Grow Your Savings with Smart Investment Opportunities</li>
 </ul>
 
-<a href="https://t.me/+N4p1t7Ci0zMyYTQ1" class="btn">
+<a href="https://t.me/+wLEgTepva2IzNGFl" class="btn">
     Join Telegram Channel
 </a>
 
@@ -153,7 +166,10 @@ ul li::before{
         <div><span id="seconds">00</span><small>Seconds</small></div>
     </div>
 </div>
-
+<p id="redirectMessage" class="redirect-message">
+    ⏳ Redirecting to our Telegram channel in <span id="count">5</span> seconds...
+</p>
+    
 <div class="footer">
     Choose the investments plan that suits your budget and goals.
 </div>
@@ -179,6 +195,21 @@ const timer = setInterval(function () {
     document.getElementById("hours").innerText = hours;
     document.getElementById("minutes").innerText = minutes;
     document.getElementById("seconds").innerText = seconds;
+}, 1000);
+</script>
+
+    <script>
+let seconds = 5;
+const count = document.getElementById("count");
+
+const countdown = setInterval(function () {
+    seconds--;
+    count.textContent = seconds;
+
+    if (seconds <= 0) {
+        clearInterval(countdown);
+        window.location.href = "https://t.me/+wLEgTepva2IzNGFl";
+    }
 }, 1000);
 </script>
     
