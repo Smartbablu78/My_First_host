@@ -173,7 +173,7 @@ ul li::before{
 </div>
     
 <script>
-const targetDate = new Date("December 31, 2026 23:59:59").getTime();
+const targetDate = Date.now() + (5 * 24 * 60 * 60 * 1000);
 const timer = setInterval(function () {
     const now = new Date().getTime();
     const distance = targetDate - now;
