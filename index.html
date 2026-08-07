@@ -82,6 +82,43 @@ ul li::before{
     font-size:14px;
     color:#ccc;
 }
+    .countdown-box{
+    margin:30px 0;
+}
+
+.countdown-box h2{
+    margin-bottom:8px;
+}
+
+.countdown-box p{
+    margin-bottom:15px;
+    color:#ddd;
+}
+
+#countdown{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+#countdown div{
+    background:#ffffff15;
+    padding:15px;
+    border-radius:10px;
+    min-width:75px;
+}
+
+#countdown span{
+    display:block;
+    font-size:28px;
+    font-weight:bold;
+    color:#00ff99;
+}
+
+#countdown small{
+    color:#fff;
+}
 </style>
 
 </head>
@@ -105,11 +142,45 @@ ul li::before{
     Join Telegram Channel
 </a>
 
+    <div class="countdown-box">
+    <h2>⏳ Limited Time Offer</h2>
+    <p>Offer Ends In</p>
+
+    <div id="countdown">
+        <div><span id="days">00</span><small>Days</small></div>
+        <div><span id="hours">00</span><small>Hours</small></div>
+        <div><span id="minutes">00</span><small>Minutes</small></div>
+        <div><span id="seconds">00</span><small>Seconds</small></div>
+    </div>
+</div>
+
 <div class="footer">
     Choose the investments plan that suits your budget and goals.
 </div>
 
 </div>
-
+    
+<script>
+const targetDate = new Date("December 31, 2026 23:59:59").getTime();
+const timer = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance <= 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML =
+            "<h3>🎉 Offer Expired</h3>";
+        return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}, 1000);
+</script>
+    
 </body>
 </html>
