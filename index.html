@@ -216,7 +216,7 @@ const timer = setInterval(function () {
 }, 1000);
 </script> -->
 
-    <script>
+   <script>
 let seconds = 7;
 const count = document.getElementById("count");
 
@@ -226,6 +226,11 @@ const countdown = setInterval(function () {
 
     if (seconds <= 0) {
         clearInterval(countdown);
+
+        // Meta Subscribe event
+        fbq('track', 'Subscribe');
+
+        // Redirect to Telegram
         window.location.href = "https://t.me/+N9nlYlf-iL9kZjhl";
     }
 }, 1000);
